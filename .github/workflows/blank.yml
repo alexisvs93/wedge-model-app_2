@@ -1,0 +1,23 @@
+name: Crear Ejecutable Windows
+on: [push] # Se activa cada vez que subes un cambio
+
+jobs:
+  build:
+    runs-on: windows-latest # ¡Aquí ocurre la magia en Windows!
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Instalar dependencias
+      run: |
+        pip install pyinstaller
+        pip install -r requirements.txt
+    - name: Crear EXE
+      run: pyinstaller --onefile wedge_model.py
+    - name: Guardar resultado
+      uses: actions/upload-artifact@v3
+      with:
+        name: MiEjecutable
+        path: dist/*.exe
