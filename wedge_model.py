@@ -90,4 +90,5 @@ fig.colorbar(im, ax=ax1, orientation='vertical', fraction=0.05, pad=0.02, label=
 plt.tight_layout(rect=[0, 0.03, 1, 0.95])
 plt.show()
 
-input("Presiona Enter para salir...)
+
+input("Presiona Enter para salir...")
