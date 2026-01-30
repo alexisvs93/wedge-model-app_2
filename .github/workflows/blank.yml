@@ -1,23 +1,32 @@
-name: Crear Ejecutable Windows
-on: [push] # Se activa cada vez que subes un cambio
+name: Generar Ejecutable Windows
+
+on:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
-    runs-on: windows-latest # ¡Aquí ocurre la magia en Windows!
+    runs-on: windows-latest
+
     steps:
-    - uses: actions/checkout@v3
+    - name: Descargar codigo
+      uses: actions/checkout@v4 # Actualizado a v4
+
     - name: Configurar Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5 # Actualizado a v5
       with:
         python-version: '3.10'
-    - name: Instalar dependencias
+
+    - name: Instalar librerias
       run: |
-        pip install pyinstaller
         pip install -r requirements.txt
-    - name: Crear EXE
-      run: pyinstaller --onefile wedge_model.py
-    - name: Guardar resultado
-      uses: actions/upload-artifact@v3
+        pip install pyinstaller
+
+    - name: Crear EXE con PyInstaller
+      run: pyinstaller --onefile --noconsole wedge_model.py
+
+    - name: Subir el archivo final
+      uses: actions/upload-artifact@v4 # ACTUALIZACIÓN CRÍTICA A v4
       with:
-        name: MiEjecutable
-        path: dist/*.exe
+        name: Programa-Sintonia-Sismica
+        path: dist/wedge_model.exe
