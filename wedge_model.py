@@ -103,6 +103,6 @@ canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 calcular_y_graficar() # Ejecución inicial
 root.mainloop()
 
-input("Presiona Enter para salir...")
+
 
 
