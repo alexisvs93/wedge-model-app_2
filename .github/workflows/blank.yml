@@ -23,12 +23,11 @@ jobs:
         pip install pyinstaller
 
     - name: Crear carpeta con PyInstaller (--onedir)
-      # Cambiamos --onefile por --onedir y mantenemos --noconsole
-      run: pyinstaller --onedir --noconsole --name wedge_model wedge_model.py
+      # Se usa --onedir para evitar bloqueos de TI y --name para fijar el nombre de la carpeta
+      run: pyinstaller --noconfirm --onedir --noconsole --name wedge_model wedge_model.py
 
     - name: Comprimir carpeta en ZIP
-      # Como es --onedir, ahora tenemos una carpeta en dist/wedge_model/
-      # Usamos PowerShell para crear el ZIP que el usuario descargará
+      # Empaquetamos la carpeta dist/wedge_model para que sea un solo archivo de descarga
       run: |
         powershell Compress-Archive -Path dist/wedge_model/* -DestinationPath dist/Programa-Sintonia-Sismica.zip
 
@@ -36,5 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Programa-Sintonia-Sismica-Portable
-        # Ahora subimos el archivo .zip que contiene todo lo necesario
         path: dist/Programa-Sintonia-Sismica.zip
