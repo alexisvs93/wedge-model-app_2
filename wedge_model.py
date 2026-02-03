@@ -91,7 +91,7 @@ frame_ctrl.pack(side=tk.LEFT, fill=tk.Y)
 
 # Entradas simplificadas con valores por defecto del Script 1
 campos = [
-    ("Vp Sup (m/s)", "4992"), ("Rho Sup (g/cc)", "2.62"),
+    ("Vp Sup (m/s)", "4992"), ("Rho Sup (g/cc)", "2.61"),
     ("Vp Cuña (m/s)", "4556"), ("Rho Cuña (g/cc)", "2.51"),
     ("Vp Inf (m/s)", "5639"), ("Rho Inf (g/cc)", "2.66"),
     ("Frecuencia (Hz)", "25"), ("Espesor Máx (m)", "200")
@@ -122,6 +122,7 @@ canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 calcular_y_graficar()
 root.mainloop()
 #Fin
+
 
 
 
