@@ -121,6 +121,8 @@ canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
 calcular_y_graficar()
 root.mainloop()
+#Fin
+
 
 
 
