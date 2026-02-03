@@ -65,6 +65,7 @@ with col1:
     ax1.axvline(esp_tuning, color='black', linestyle='--')
     ax1.set_ylabel("Tiempo (s)")
     ax1.set_xlabel("Espesor (m)")
+    ax1.invert_xaxis()
     st.pyplot(fig1)
 
 with col2:
@@ -78,6 +79,7 @@ with col2:
     st.pyplot(fig2)
 
 st.success(output := f"El espesor de sintonía calculado es de **{esp_tuning:.2f} metros**.")
+
 
 
 
